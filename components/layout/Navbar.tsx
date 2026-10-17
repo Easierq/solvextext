@@ -70,7 +70,7 @@ export function Navbar() {
                   <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-blue-950 transition-all group-hover:w-full" />
                 </Link>
               ))}
-              <Link href="/login">
+              <Link href="/">
                 <Button
                   variant="outline"
                   className={cn(
@@ -125,7 +125,7 @@ export function Navbar() {
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             // className="fixed inset-0 z-[200] bg-blue-50 flex flex-col p-10 overflow-y-scroll hidden-scrollbar"
-            className="fixed top-0 left-0 right-0 bottom-0 z-[200] bg-yellow-300 flex flex-col p-10 overflow-y-scroll hidden-scrollbar"
+            className="fixed top-0 left-0 right-0 bottom-0 min-h-screen z-[200] bg-yellow-300 flex flex-col p-10 overflow-y-scroll hidden-scrollbar"
           >
             <div className="flex justify-between items-center mb-12">
               <Logo />

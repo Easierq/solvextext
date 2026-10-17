@@ -17,7 +17,7 @@ import {
   MapPin,
 } from "lucide-react";
 
-// Country code + number, no "+" or spaces
+// Indicatif pays + numéro, sans "+" ni espaces
 const WHATSAPP_NUMBER = "234XXXXXXXXXX";
 
 interface FormData {
@@ -87,7 +87,7 @@ const ConsultationForm: React.FC = () => {
     }));
   };
 
-  // Simple per-step validation
+  // Validation simple à chaque étape
   const canContinue = (): boolean => {
     switch (currentStep) {
       case 1:
@@ -112,8 +112,8 @@ const ConsultationForm: React.FC = () => {
   };
 
   const handleSubmit = (): void => {
-    // TODO: send formData to your API / email service
-    console.log("Quote request submitted:", formData);
+    // TODO : envoyer les données du formulaire vers votre API / service e-mail
+    console.log("Demande de devis envoyée :", formData);
     setSubmitted(true);
   };
 
@@ -129,18 +129,18 @@ const ConsultationForm: React.FC = () => {
 
   const sendOnWhatsApp = (): void => {
     const lines = [
-      `Hello, I just requested a free quote on your website.`,
+      `Bonjour, je viens de demander un devis gratuit sur votre site web.`,
       ``,
-      `Name: ${formData.firstName} ${formData.lastName}`,
-      `Phone: ${formData.phone}`,
-      `Email: ${formData.email}`,
-      `Location: ${formData.location}`,
-      `Services: ${formData.services.join(", ")}`,
-      `Urgency: ${formData.urgency}`,
-      `Property: ${formData.propertyType}`,
-      `Budget: ${formData.budget}`,
-      `Preferred visit: ${formData.preferredDate} (${formData.preferredTime})`,
-      formData.message ? `Details: ${formData.message}` : "",
+      `Nom : ${formData.firstName} ${formData.lastName}`,
+      `Téléphone : ${formData.phone}`,
+      `E-mail : ${formData.email}`,
+      `Lieu : ${formData.location}`,
+      `Services : ${formData.services.join(", ")}`,
+      `Urgence : ${formData.urgency}`,
+      `Bien : ${formData.propertyType}`,
+      `Budget : ${formData.budget}`,
+      `Visite souhaitée : ${formData.preferredDate} (${formData.preferredTime})`,
+      formData.message ? `Détails : ${formData.message}` : "",
     ].filter(Boolean);
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -157,10 +157,12 @@ const ConsultationForm: React.FC = () => {
 
   const progress = (currentStep / TOTAL_STEPS) * 100;
 
-  /* ───────────── Success screen ───────────── */
+  /* ───────────── Écran de confirmation ───────────── */
   if (submitted) {
     return (
-      <div className="py-16 md:py-24 bg-gray-50">
+      <div className="py-12 md:py-20 relative">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:56px_56px]" />
+
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
@@ -168,38 +170,45 @@ const ConsultationForm: React.FC = () => {
                 <CheckCircle className="w-12 h-12 text-neutral-900" />
               </div>
               <h2 className="text-3xl md:text-4xl font-black text-blue-950 mb-4">
-                Thank You!
+                Merci !
               </h2>
               <p className="text-lg md:text-xl text-slate-600 mb-8">
-                Your quote request has been received. One of our electricians
-                will review it and contact you within 24 hours.
+                Votre demande de devis a bien été reçue. L’un de nos
+                électriciens l’examinera et vous contactera dans les 24 heures.
               </p>
 
               <div className="bg-yellow-50 border-2 border-yellow-300 rounded-2xl p-6 mb-8">
                 <h3 className="font-bold text-neutral-900 mb-3">
-                  What Happens Next?
+                  Prochaines étapes
                 </h3>
                 <div className="space-y-2 text-left text-neutral-800">
-                  <p>✓ We review your job details</p>
-                  <p>✓ A certified electrician is assigned to you</p>
-                  <p>✓ We contact you to confirm the visit</p>
-                  <p>✓ You get a clear, upfront quote</p>
+                  <p>Nous examinons les détails de votre demande</p>
+                  <p>Un électricien certifié est affecté à votre projet</p>
+                  <p>Nous vous contactons pour confirmer la visite</p>
+                  <p>Vous recevez un devis clair et détaillé</p>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <button
                   onClick={sendOnWhatsApp}
-                  className="inline-flex items-center justify-center gap-2 bg-neutral-900 hover:bg-neutral-800 text-yellow-300 px-8 py-3.5 rounded-xl font-bold transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-blue-950 hover:bg-blue-950/90 text-yellow-300 px-5 py-3.5 rounded-xl font-bold transition-colors"
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  Send Details on WhatsApp
+                  <svg
+                    viewBox="0 0 32 32"
+                    className="relative h-5 w-5"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M16.003 3C8.83 3 3 8.83 3 16c0 2.29.6 4.52 1.74 6.49L3 29l6.7-1.72A12.94 12.94 0 0 0 16 29c7.17 0 13-5.83 13-13S23.17 3 16.003 3Zm0 23.7c-1.95 0-3.86-.52-5.53-1.5l-.4-.23-3.98 1.02 1.06-3.88-.26-.4A10.67 10.67 0 0 1 5.3 16c0-5.9 4.8-10.7 10.7-10.7S26.7 10.1 26.7 16 21.9 26.7 16.003 26.7Zm5.87-8c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.51-.16-.73.16-.21.32-.84 1.05-1.03 1.26-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.73-1.76-1-2.4-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68 0 1.58 1.15 3.1 1.31 3.32.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.21-.62-.37Z" />
+                  </svg>
+                  Envoyer les détails sur WhatsApp
                 </button>
                 <button
                   onClick={reset}
-                  className="border-2 border-neutral-900 text-neutral-900 hover:bg-yellow-300 px-8 py-3.5 rounded-xl font-bold transition-colors"
+                  className="border-2 border-blue950bg-blue-950 text-blue950bg-blue-950 hover:bg-yellow-300 px-5 py-3.5 rounded-xl font-bold transition-colors"
                 >
-                  Request Another Quote
+                  Demander un autre devis
                 </button>
               </div>
             </div>
@@ -209,34 +218,34 @@ const ConsultationForm: React.FC = () => {
     );
   }
 
-  /* ───────────── Form ───────────── */
+  /* ───────────── Formulaire ───────────── */
   return (
     <div className="relative overflow-hidden py-12 md:py-20">
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:56px_56px]" />
 
       <div className="container relative mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          {/* Heading (right aligned) */}
+          {/* Titre */}
           <div className="flex flex-col items-start text-left mb-10">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-blue-950 leading-[1.1] mb-4">
-              Let&apos;s Power{" "}
+              Donnons vie à{" "}
               <span className="bg-yellow-300 px-2 rounded-md inline-block">
-                Your Project
+                votre projet
               </span>
             </h2>
             <p className="text-lg md:text-xl text-slate-600 max-w-xl">
-              Tell us what you need and get a free quote from our certified
-              electricians
+              Dites-nous ce dont vous avez besoin et obtenez un devis gratuit de
+              nos électriciens certifiés
             </p>
           </div>
 
-          {/* Progress */}
+          {/* Progression */}
           <div className="mb-8">
             <div className="flex justify-between mb-2 text-sm font-semibold text-slate-600">
               <span>
-                Step {currentStep} of {TOTAL_STEPS}
+                Étape {currentStep} sur {TOTAL_STEPS}
               </span>
-              <span>{Math.round(progress)}% Complete</span>
+              <span>{Math.round(progress)} % terminé</span>
             </div>
             <div className="h-3 bg-neutral-900/10 rounded-full overflow-hidden">
               <div
@@ -247,20 +256,22 @@ const ConsultationForm: React.FC = () => {
           </div>
 
           <div className="bg-white rounded-3xl shadow-2xl p-5 sm:p-8">
-            {/* Step 1: Contact */}
+            {/* Étape 1 : Contact */}
             {currentStep === 1 && (
               <div className="space-y-6">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-blue-950">
-                    Your Details
+                    Vos coordonnées
                   </h3>
-                  <p className="text-slate-600">How can we reach you?</p>
+                  <p className="text-slate-600">
+                    Comment pouvons-nous vous joindre ?
+                  </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      First Name *
+                      Prénom *
                     </label>
                     <input
                       type="text"
@@ -274,7 +285,7 @@ const ConsultationForm: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Last Name *
+                      Nom *
                     </label>
                     <input
                       type="text"
@@ -290,7 +301,7 @@ const ConsultationForm: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Email Address *
+                    Adresse e-mail *
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -307,7 +318,7 @@ const ConsultationForm: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Phone Number *
+                      Numéro de téléphone *
                     </label>
                     <div className="relative">
                       <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -324,7 +335,7 @@ const ConsultationForm: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Job Location *
+                      Lieu de l’intervention *
                     </label>
                     <div className="relative">
                       <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -335,7 +346,7 @@ const ConsultationForm: React.FC = () => {
                           updateFormData("location", e.target.value)
                         }
                         className={`${inputClass} pl-12`}
-                        placeholder="Ixelles, Brussels"
+                        placeholder="Ixelles, Bruxelles"
                       />
                     </div>
                   </div>
@@ -343,14 +354,16 @@ const ConsultationForm: React.FC = () => {
               </div>
             )}
 
-            {/* Step 2: Services & urgency */}
+            {/* Étape 2 : Services et urgence */}
             {currentStep === 2 && (
               <div className="space-y-6">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-blue-950">
-                    What Do You Need?
+                    De quoi avez-vous besoin ?
                   </h3>
-                  <p className="text-slate-600">Select all that apply</p>
+                  <p className="text-slate-600">
+                    Sélectionnez toutes les options concernées
+                  </p>
                 </div>
 
                 <div>
@@ -359,15 +372,15 @@ const ConsultationForm: React.FC = () => {
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {[
-                      "House Wiring",
-                      "Panel Upgrade",
-                      "Lighting",
-                      "Solar & Inverter",
-                      "Fault Finding",
-                      "Emergency Repair",
-                      "Sockets & Switches",
-                      "Commercial Work",
-                      "Other",
+                      "Câblage de maison",
+                      "Mise à niveau du tableau électrique",
+                      "Éclairage",
+                      "Solaire et onduleur",
+                      "Diagnostic de panne",
+                      "Réparation d’urgence",
+                      "Prises et interrupteurs",
+                      "Travaux commerciaux",
+                      "Autre",
                     ].map((service) => (
                       <button
                         key={service}
@@ -386,14 +399,14 @@ const ConsultationForm: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3">
-                    How urgent is it? *
+                    Quel est le niveau d’urgence ? *
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     {[
-                      "Emergency",
-                      "This week",
-                      "This month",
-                      "Just planning",
+                      "Urgence",
+                      "Cette semaine",
+                      "Ce mois-ci",
+                      "Simplement en projet",
                     ].map((time) => (
                       <button
                         key={time}
@@ -412,27 +425,27 @@ const ConsultationForm: React.FC = () => {
               </div>
             )}
 
-            {/* Step 3: Property & budget */}
+            {/* Étape 3 : Bien et budget */}
             {currentStep === 3 && (
               <div className="space-y-6">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-blue-950">
-                    Property & Budget
+                    Bien et budget
                   </h3>
                 </div>
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3">
-                    Property Type *
+                    Type de bien *
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {[
-                      "House",
-                      "Apartment",
-                      "Shop / Store",
-                      "Office",
-                      "Industrial",
-                      "Other",
+                      "Maison",
+                      "Appartement",
+                      "Magasin / commerce",
+                      "Bureau",
+                      "Industriel",
+                      "Autre",
                     ].map((property) => (
                       <button
                         key={property}
@@ -452,15 +465,15 @@ const ConsultationForm: React.FC = () => {
                 <div>
                   <label className="flex items-center gap-1 text-sm font-semibold text-gray-700 mb-3">
                     <DollarSign className="w-4 h-4" />
-                    Estimated Budget *
+                    Budget estimé *
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {[
-                      "Under $100",
+                      "Moins de 100 $",
                       "$100 - $500",
                       "$500 - $2,000",
                       "$2,000+",
-                      "Not sure yet",
+                      "Pas encore sûr",
                     ].map((budget) => (
                       <button
                         key={budget}
@@ -479,46 +492,46 @@ const ConsultationForm: React.FC = () => {
               </div>
             )}
 
-            {/* Step 4: Details */}
+            {/* Étape 4 : Détails */}
             {currentStep === 4 && (
               <div className="space-y-6">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-blue-950">
-                    Tell Us More
+                    Dites-nous en plus
                   </h3>
                   <p className="text-slate-600">
-                    Optional, but it helps us quote accurately
+                    Facultatif, mais cela nous aide à établir un devis précis
                   </p>
                 </div>
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Job Description
+                    Description de l’intervention
                   </label>
                   <textarea
                     value={formData.message}
                     onChange={(e) => updateFormData("message", e.target.value)}
                     rows={6}
                     className={`${inputClass} resize-none`}
-                    placeholder="Describe the problem or the work you need (e.g. number of rooms, tripping breakers, new sockets)..."
+                    placeholder="Décrivez le problème ou les travaux nécessaires (par ex. nombre de pièces, disjoncteurs qui sautent, nouvelles prises)…"
                   />
                 </div>
               </div>
             )}
 
-            {/* Step 5: Schedule */}
+            {/* Étape 5 : Planification */}
             {currentStep === 5 && (
               <div className="space-y-6">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-blue-950">
-                    Schedule a Visit
+                    Planifier une visite
                   </h3>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Preferred Date *
+                      Date souhaitée *
                     </label>
                     <input
                       type="date"
@@ -532,7 +545,7 @@ const ConsultationForm: React.FC = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Preferred Time *
+                      Heure souhaitée *
                     </label>
                     <select
                       value={formData.preferredTime}
@@ -541,15 +554,15 @@ const ConsultationForm: React.FC = () => {
                       }
                       className={inputClass}
                     >
-                      <option value="">Select a time</option>
-                      <option value="Morning (8AM - 12PM)">
-                        Morning (8AM - 12PM)
+                      <option value="">Sélectionnez une heure</option>
+                      <option value="Matin (8 h - 12 h)">
+                        Matin (8 h - 12 h)
                       </option>
-                      <option value="Afternoon (12PM - 5PM)">
-                        Afternoon (12PM - 5PM)
+                      <option value="Après-midi (12 h - 17 h)">
+                        Après-midi (12 h - 17 h)
                       </option>
-                      <option value="Evening (5PM - 8PM)">
-                        Evening (5PM - 8PM)
+                      <option value="Soirée (17 h - 20 h)">
+                        Soirée (17 h - 20 h)
                       </option>
                     </select>
                   </div>
@@ -557,12 +570,12 @@ const ConsultationForm: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-3">
-                    Preferred Contact Method *
+                    Moyen de contact souhaité *
                   </label>
                   <div className="grid grid-cols-3 gap-3">
                     {[
                       { id: "whatsapp", name: "WhatsApp", icon: MessageCircle },
-                      { id: "phone", name: "Phone", icon: Phone },
+                      { id: "phone", name: "Téléphone", icon: Phone },
                       { id: "email", name: "Email", icon: Mail },
                     ].map((method) => {
                       const Icon = method.icon;
@@ -596,7 +609,7 @@ const ConsultationForm: React.FC = () => {
                   onClick={prevStep}
                   className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
                 >
-                  Back
+                  Retour
                 </button>
               ) : (
                 <div />
@@ -609,7 +622,7 @@ const ConsultationForm: React.FC = () => {
                   disabled={!canContinue()}
                   className="px-8 py-3 bg-yellow-300 hover:bg-yellow-400 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-neutral-900 rounded-xl font-bold transition-colors flex items-center gap-2 shadow-md disabled:shadow-none"
                 >
-                  Continue
+                  Continuer
                   <ArrowRight className="w-5 h-5" />
                 </button>
               ) : (
@@ -620,7 +633,7 @@ const ConsultationForm: React.FC = () => {
                   className="px-8 py-3 bg-neutral-900 hover:bg-neutral-800 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed text-yellow-300 rounded-xl font-bold transition-colors flex items-center gap-2 shadow-lg disabled:shadow-none"
                 >
                   <CheckCircle className="w-5 h-5" />
-                  Request Quote
+                  Demander un devis
                 </button>
               )}
             </div>

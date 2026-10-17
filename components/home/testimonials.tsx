@@ -13,44 +13,44 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     name: "Sarah Johnson",
-    role: "Homeowner",
+    role: "Propriétaire",
     avatar: "https://mockmind-api.uifaces.co/content/human/97.jpg",
     testimonial:
-      "Our power kept tripping every evening. They found the faulty circuit in under an hour and fixed it the same day.",
+      "Le courant sautait tous les soirs. Ils ont trouvé le circuit défectueux en moins d’une heure et l’ont réparé le jour même.",
   },
   {
     name: "Daniel Kim",
-    role: "Owner, Kim's Kitchen",
+    role: "Propriétaire, cuisine Kim",
     avatar: "https://mockmind-api.uifaces.co/content/human/80.jpg",
     testimonial:
-      "They rewired our restaurant kitchen over a weekend so we never missed a service. The team was tidy, on time, and walked me through every change. Our power has been stable ever since.",
+      "Ils ont refait le câblage de notre cuisine de restaurant pendant un week-end, sans interrompre le service. L’équipe était soignée, ponctuelle et m’a expliqué chaque modification. Notre alimentation est stable depuis.",
     featured: true,
   },
   {
     name: "Emily Chen",
-    role: "Property Manager",
+    role: "Gestionnaire immobilier",
     avatar: "https://mockmind-api.uifaces.co/content/human/113.jpg",
     testimonial:
-      "I manage twelve rental units and call them for every electrical issue. They respond fast, quote honestly, and the certificates are always ready when inspectors ask. I wouldn't use anyone else.",
+      "Je gère douze logements locatifs et je les appelle pour chaque problème électrique. Ils interviennent vite, établissent des devis honnêtes et les certificats sont toujours prêts pour les inspecteurs. Je ne ferais appel à personne d’autre.",
   },
   {
     name: "Raj Mehta",
-    role: "Home Renovator",
+    role: "Rénovateur de maisons",
     avatar: "https://mockmind-api.uifaces.co/content/human/90.jpg",
-    testimonial: "Neat wiring, fair price, and no mess left behind.",
+    testimonial: "Câblage soigné, prix juste et aucun désordre laissé derrière eux.",
   },
   {
     name: "Aisha Patel",
-    role: "Homeowner",
+    role: "Propriétaire",
     avatar: "https://mockmind-api.uifaces.co/content/human/116.jpg",
-    testimonial: "Installed our new lighting in one day. It looks great!",
+    testimonial: "Ils ont installé notre nouvel éclairage en une journée. Le résultat est superbe !",
   },
   {
     name: "Liam Garcia",
-    role: "Workshop Owner",
+    role: "Propriétaire d’atelier",
     avatar: "https://mockmind-api.uifaces.co/content/human/112.jpg",
     testimonial:
-      "I needed a new panel and three-phase power for my machines. They explained the options plainly, finished on schedule, and the quote matched the final bill. Safe, careful work from start to finish.",
+      "J’avais besoin d’un nouveau tableau et d’une alimentation triphasée pour mes machines. Ils ont expliqué clairement les options, terminé dans les délais et le devis correspondait à la facture finale. Un travail sûr et soigné du début à la fin.",
   },
 ];
 
@@ -144,7 +144,7 @@ function Card({
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={avatar}
-            alt={`Portrait of ${name}`}
+            alt={`Portrait de ${name}`}
             loading="lazy"
             decoding="async"
             className={`size-12 rounded-full object-cover ring-2 ring-offset-2 transition-colors duration-300 ${
@@ -179,17 +179,17 @@ export function Testimonials() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
-        className="mx-auto max-w-(--breakpoint-xl) px-6 py-16 sm:py-28"
+        className="mx-auto max-w-(--breakpoint-xl) px-6 py-12 sm:py-16 mt-8"
       >
-        {/* Heading (left aligned, matches the other sections) */}
+        {/* Titre */}
         <div className="mx-auto max-w-5xl">
           <motion.h2
             variants={shouldReduce ? reduced : headerItem}
             className="text-4xl font-black leading-[1.1] tracking-tight text-balance md:text-5xl lg:text-6xl"
           >
-            Trusted by Homes and{" "}
+            La confiance des maisons et des{" "}
             <span className="inline-block rounded-md bg-yellow-300 px-2 text-blue-950">
-              Businesses
+              entreprises
             </span>
           </motion.h2>
 
@@ -197,7 +197,7 @@ export function Testimonials() {
             variants={shouldReduce ? reduced : headerItem}
             className="mt-4 max-w-xl text-lg text-blue-200/80 sm:mt-5 sm:text-xl"
           >
-            Safe, reliable electrical work that customers recommend
+            Des travaux électriques sûrs et fiables que nos clients recommandent
           </motion.p>
         </div>
 

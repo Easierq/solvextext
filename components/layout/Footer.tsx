@@ -20,21 +20,29 @@ import {
 import { Logo } from "./logo";
 import { SITE_NAME } from "@/lib/constants";
 
-// Country code + number, no "+" or spaces
+// Indicatif pays + numéro, sans "+" ni espaces
 const WHATSAPP_NUMBER = "234XXXXXXXXXX";
 
 const features = [
-  { icon: Clock, title: "24/7 Emergency Service", text: "Always on call" },
+  {
+    icon: Clock,
+    title: "Service d’urgence 24 h/24, 7 j/7",
+    text: "Toujours disponible",
+  },
   {
     icon: ShieldCheck,
-    title: "Licensed & Insured",
-    text: "Certified electricians",
+    title: "Agréés et assurés",
+    text: "Électriciens certifiés",
   },
-  { icon: BadgeCheck, title: "Free Quotes", text: "Upfront, honest pricing" },
+  {
+    icon: BadgeCheck,
+    title: "Devis gratuits",
+    text: "Tarifs clairs et honnêtes",
+  },
   {
     icon: Zap,
-    title: "Workmanship Guarantee",
-    text: "Safe, code-compliant work",
+    title: "Garantie de qualité",
+    text: "Travail sûr et conforme aux normes",
   },
 ];
 
@@ -46,27 +54,27 @@ const socials = [
 ];
 
 const quickLinks = [
-  { name: "Home", href: "/" },
+  { name: "Accueil", href: "/" },
   { name: "Services", href: "/services" },
-  { name: "Emergency Repairs", href: "/" },
+  { name: "Réparations d’urgence", href: "/" },
   { name: "Certifications", href: "/" },
   { name: "Blog", href: "/" },
   { name: "Contact", href: "/contact" },
 ];
 
 const services = [
-  { label: "Residential Wiring", href: "/" },
-  { label: "Commercial Electrical", href: "/" },
-  { label: "Panel Upgrades", href: "/" },
-  { label: "Lighting Installation", href: "/" },
-  { label: "Solar & Inverters", href: "/" },
-  { label: "Emergency Repairs", href: "/" },
+  { label: "Câblage résidentiel", href: "/" },
+  { label: "Électricité commerciale", href: "/" },
+  { label: "Mise à niveau des tableaux électriques", href: "/" },
+  { label: "Installation d’éclairage", href: "/" },
+  { label: "Solaire et onduleurs", href: "/" },
+  { label: "Réparations d’urgence", href: "/" },
 ];
 
 const legalLinks = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms of Service", href: "/terms" },
-  { label: "Cookie Policy", href: "/cookies" },
+  { label: "Politique de confidentialité", href: "/privacy" },
+  { label: "Conditions d’utilisation", href: "/terms" },
+  { label: "Politique relative aux cookies", href: "/cookies" },
 ];
 
 export const Footer = () => {
@@ -86,34 +94,36 @@ export const Footer = () => {
   };
 
   const handleWhatsApp = () => {
-    const message = "Hello, I need an electrician. Please get back to me.";
+    const message =
+      "Bonjour, j’ai besoin d’un électricien. Merci de me recontacter.";
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: hook up to your newsletter service
+    // TODO : connecter au service de lettre d’information
     setEmail("");
   };
 
   return (
     <footer className="relative overflow-hidden bg-yellow-300 text-neutral-900">
       <div className="relative container px-6 max-w-7xl mx-auto w-full pt-14">
-        {/* ── Main grid ── */}
+        {/* ── Grille principale ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-14">
-          {/* Company Info */}
+          {/* Informations sur l’entreprise */}
           <div className="lg:col-span-2">
             <div className="mb-5">
               <Logo />
             </div>
             <p className="text-neutral-800 mb-6 leading-relaxed max-w-md">
-              Safe, reliable electrical solutions for homes and businesses. From
-              new installations to emergency repairs, our certified electricians
-              power your world with quality you can trust.
+              Des solutions électriques sûres et fiables pour les maisons et les
+              entreprises. Des nouvelles installations aux réparations
+              d’urgence, nos électriciens certifiés alimentent votre quotidien
+              avec une qualité digne de confiance.
             </p>
 
-            {/* Social Media */}
+            {/* Réseaux sociaux */}
             <div className="flex gap-3 mb-8">
               {socials.map(({ icon: Icon, label, href }) => (
                 <a
@@ -127,10 +137,10 @@ export const Footer = () => {
               ))}
             </div>
 
-            {/* Newsletter */}
+            {/* Lettre d’information */}
             <div>
               <h4 className="font-bold mb-3">
-                Get Electrical Safety Tips & Offers
+                Recevez des conseils de sécurité électrique et des offres
               </h4>
               <form
                 onSubmit={handleSubscribe}
@@ -141,23 +151,23 @@ export const Footer = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email"
+                  placeholder="Votre adresse e-mail"
                   className="min-w-0 flex-1 bg-transparent px-4 py-2 text-neutral-900 placeholder-neutral-400 focus:outline-none"
                 />
                 <button
                   type="submit"
                   className="inline-flex items-center gap-2 rounded-xl bg-blue-950 px-5 py-2.5 font-semibold text-yellow-300 hover:bg-blue-900 transition-colors"
                 >
-                  Subscribe
+                  S’abonner
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </form>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Liens rapides */}
           <div>
-            <h3 className="text-lg font-black mb-5">Quick Links</h3>
+            <h3 className="text-lg font-black mb-5">Liens rapides</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -175,7 +185,7 @@ export const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-black mb-5">Our Services</h3>
+            <h3 className="text-lg font-black mb-5">Nos services</h3>
             <ul className="space-y-3">
               {services.map((link) => (
                 <li key={link.label}>
@@ -191,14 +201,14 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Coordonnées */}
           <div>
-            <h3 className="text-lg font-black mb-5">Contact Us</h3>
+            <h3 className="text-lg font-black mb-5">Contactez-nous</h3>
             <ul className="space-y-4">
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 flex-shrink-0" />
                 <a
-                  href="tel:+234XXXXXXXXXX"
+                  href="tel:+3247735046"
                   className="text-neutral-800 hover:text-black font-medium transition-colors"
                 >
                   +32 477 3504 6
@@ -216,23 +226,23 @@ export const Footer = () => {
             </ul>
 
             <div className="mt-6">
-              <h4 className="font-bold mb-2">Business Hours</h4>
+              <h4 className="font-bold mb-2">Heures d’ouverture</h4>
               <div className="text-sm text-neutral-800 space-y-1">
-                <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
-                <p>Sat: 9:00 AM - 4:00 PM</p>
-                <p className="font-bold">Emergency: 24/7</p>
+                <p>Lun. - Ven. : 8 h 00 - 18 h 00</p>
+                <p>Sam. : 9 h 00 - 16 h 00</p>
+                <p className="font-bold">Urgences : 24 h/24, 7 j/7</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ── Bottom Bar ── */}
+      {/* ── Barre inférieure ── */}
       <div className="relative bg-blue-950">
         <div className="px-[3%] lg:px-[7%] max-w-[1440px] mx-auto py-5">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white text-sm text-center md:text-left">
-              © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
+              © {new Date().getFullYear()} {SITE_NAME}. Tous droits réservés.
             </p>
 
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
@@ -250,11 +260,11 @@ export const Footer = () => {
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
+      {/* Bouton de retour en haut */}
       {/* {showScrollTop && (
         <button
           onClick={scrollToTop}
-          aria-label="Scroll to top"
+          aria-label="Retour en haut"
           className="fixed bottom-6 right-6 z-30 rounded-full bg-blue-950 p-3 text-yellow-300 shadow-xl ring-2 ring-yellow-300 transition-all hover:scale-110 hover:bg-neutral-800"
         >
           <ArrowUp className="h-6 w-6" />

@@ -10,12 +10,20 @@ interface HeroImageSlideProps {
   className?: string;
 }
 
+// const DEFAULT_IMAGES: string[] = [
+//   "https://images.unsplash.com/photo-1758101755915-462eddc23f57?w=800&q=80",
+//   "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80",
+//   "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=800&q=80",
+//   "https://images.unsplash.com/photo-1635335874521-7987db781153?w=800&q=80",
+//   "https://images.unsplash.com/photo-1572211281255-bb9fd6f3ca0e?w=800&q=80",
+// ];
+
 const DEFAULT_IMAGES: string[] = [
-  "https://images.unsplash.com/photo-1758101755915-462eddc23f57?w=800&q=80",
-  "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80",
-  "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=800&q=80",
-  "https://images.unsplash.com/photo-1635335874521-7987db781153?w=800&q=80",
-  "https://images.unsplash.com/photo-1572211281255-bb9fd6f3ca0e?w=800&q=80",
+  // Lit rooms & interiors
+  "https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&q=80", // living room with woven pendant lights
+  "https://images.unsplash.com/photo-1656402887556-e727ffe1f6d7?w=800&q=80", // kitchen with pendant lighting
+  "https://images.unsplash.com/photo-1679485734032-1e2b82a6999c?w=800&q=80", // living and dining room, ceiling lights
+  "https://images.unsplash.com/photo-1627306411131-358d6d0fd2cb?w=800&q=80", // brass chandelier in a room
 ];
 
 export default function HeroImageSlide({

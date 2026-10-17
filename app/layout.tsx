@@ -19,7 +19,7 @@ import WhatsAppButton from "@/components/layout/WhatsAppButton";
 const SITE_CONFIG = {
   name: "Solvex",
   company: "Solvex Inc. Electrical Services",
-  url: "https://solvextest.vercel.app",
+  url: "https://solvextext.vercel.app",
   twitterHandle: "@solvexelectric",
 };
 

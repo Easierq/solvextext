@@ -25,7 +25,7 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex items-center pt-24 md:pt-40 pb-12 md:pb-16">
-      {/* ── Video Modal ── */}
+      {/* ── Fenêtre vidéo ── */}
       {showVideo && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 md:p-10">
           <div
@@ -42,31 +42,31 @@ export function Hero() {
 
             <iframe
               src="https://www.youtube.com/embed/HTmKIq6hy44?autoplay=1&rel=0&modestbranding=1"
-              title="Oasis visit management."
+              title="Gestion des visites Oasis."
               className="w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
 
-            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent pointer-events-none">
-              <p className="text-[10px] font-black text-yellow-300 uppercase tracking-widest mb-1">
-                Now Playing
+            <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black to-transparent pointer-events-none">
+              <p className="text-[8px] font-black text-yellow-300 uppercase tracking-widest mb-1">
+                Lecture en cours
               </p>
-              <p className="text-sm font-black text-white uppercase italic tracking-widest">
-                Oasis visit management Demo.
+              <p className="text-sm font-bold text-white uppercase italic tracking-widest">
+                Solvex Electrical Services.
               </p>
             </div>
           </div>
         </div>
       )}
 
-      {/* ── Subtle pattern grid ── */}
+      {/* ── Grille à motif discret ── */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:56px_56px]" />
 
       <div className="relative z-10 container px-6 max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center w-full">
           <div className="space-y-8 order-2 lg:order-1">
-            {/* Headline */}
+            {/* Titre */}
             <motion.h1
               variants={fadeUp}
               initial="initial"
@@ -74,14 +74,14 @@ export function Hero() {
               custom={1}
               className="text-5xl md:text-6xl lg:text-7xl font-black md:font-black tracking-tight leading-[1.1] text-blue-950"
             >
-              Power Every <br />
+              Alimentez chaque <br />
               <span className="bg-yellow-300 px-2 text-blue-950 inline-block rounded-md">
-                Project,
+                projet,
               </span>
-              <br /> Safely.
+              <br /> en toute sécurité.
             </motion.h1>
 
-            {/* Subtitle */}
+            {/* Sous-titre */}
             <motion.p
               variants={fadeUp}
               initial="initial"
@@ -89,12 +89,13 @@ export function Hero() {
               custom={2}
               className="text-lg md:text-xl text-slate-800 leading-relaxed max-w-lg"
             >
-              Licensed electricians for wiring, installations, repairs, and
-              solar setups. Fast response, certified workmanship, and
-              transparent pricing — for homes and businesses alike.
+              Électriciens agréés pour le câblage, les installations, les
+              réparations et les systèmes solaires. Intervention rapide,
+              travail certifié et tarifs transparents — pour les maisons
+              comme pour les entreprises.
             </motion.p>
 
-            {/* CTAs */}
+            {/* Appels à l’action */}
             <motion.div
               variants={fadeUp}
               initial="initial"
@@ -107,7 +108,7 @@ export function Hero() {
                 variant="outline"
                 className="group w-full sm:w-auto h-14 px-8 rounded-2xl bg-yellow-300 hover:bg-yellow-400 text-blue-950 font-bold text-base shadow-lg transition-all"
               >
-                Get a Free Quote
+                Obtenir un devis gratuit
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button> */}
               <Button
@@ -117,11 +118,11 @@ export function Hero() {
                 className="group w-full sm:w-auto h-14 px-8 rounded-2xl bg-yellow-300 hover:bg-yellow-400 text-blue-950 font-bold text-base shadow-lg transition-all"
               >
                 <a
-                  href="https://wa.me/3247735046?text=Hello,%20I%20would%20like%20to%20get%20a%20free%20quote."
+                  href="https://wa.me/3247735046?text=Bonjour,%20je%20souhaiterais%20obtenir%20un%20devis%20gratuit."
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Get a Free Quote
+                  Obtenir un devis gratuit
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
@@ -131,7 +132,7 @@ export function Hero() {
                 className="group w-full sm:w-auto h-14 md:h-14 px-8 rounded-2xl bg-blue-950 text-yellow-300 hover:bg-blue-950/95 font-semibold text-base md:text-base transition-all"
                 onClick={() => setShowVideo(true)}
               >
-                See Our Work
+                Voir nos réalisations
               </Button>
             </motion.div>
           </div>
@@ -146,7 +147,7 @@ export function Hero() {
             className="relative flex flex-col w-full order-1 lg:order-2"
           >
             <h2 className="lg:hidden text-3xl text-blue-950 font-bold mb-4">
-              Welcome back,
+              Bon retour,
             </h2>
             <div className="relative rounded-md overflow-hidden border-2 border-yellow-300 bg-white w-full">
               <div className="hidden lg:block w-full">

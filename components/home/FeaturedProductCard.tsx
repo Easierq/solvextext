@@ -4,8 +4,14 @@ import React from "react";
 import Link from "next/link";
 import type { FurnitureProduct } from "@/types/product";
 
-// Country code + number, no "+" or spaces
-const WHATSAPP_NUMBER = "234XXXXXXXXXX";
+// Indicatif pays + numéro, sans "+" ni espaces
+const WHATSAPP_NUMBER = "3247735046";
+
+const badgeLabels: Record<NonNullable<FurnitureProduct["badge"]>, string> = {
+  New: "Nouveau",
+  Sale: "Promotion",
+  Bestseller: "Meilleure vente",
+};
 
 interface ProductCardProps {
   product: FurnitureProduct;
@@ -17,11 +23,11 @@ export const FeaturedProductCard = ({ product }: ProductCardProps) => {
     : 0;
 
   const handleBookNow = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // Button sits inside a Link, so stop the card navigation
+    // Le bouton est dans un lien : empêcher la navigation de la carte
     e.preventDefault();
     e.stopPropagation();
 
-    const message = `Hello, I'd like to book the "${product.name}" service. Please share availability and a quote.`;
+    const message = `Bonjour, je souhaiterais réserver le service « ${product.name} ». Merci de me communiquer vos disponibilités et un devis.`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -39,7 +45,7 @@ export const FeaturedProductCard = ({ product }: ProductCardProps) => {
           <div className="absolute top-4 left-4 flex flex-col gap-2">
             {product.badge && (
               <span className="bg-yellow-300 text-blue-950 px-3 py-1 rounded-full text-xs font-bold shadow">
-                {product.badge}
+                {badgeLabels[product.badge]}
               </span>
             )}
             {discountPercentage > 0 && (
@@ -49,33 +55,33 @@ export const FeaturedProductCard = ({ product }: ProductCardProps) => {
             )}
           </div>
 
-          {/* Always visible on mobile, hover-reveal on desktop */}
+          {/* Toujours visible sur mobile, révélé au survol sur ordinateur */}
           <div className="absolute bottom-4 left-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
             <button
               onClick={handleBookNow}
               className="w-full bg-yellow-300 hover:bg-yellow-400 text-blue-950 py-3 rounded-lg font-bold transition-colors flex items-center justify-center gap-2 shadow-lg"
             >
-              Book Now
+              Réserver maintenant
             </button>
           </div>
 
           {!product.inStock && (
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">
               <span className="bg-red-500 text-white px-4 py-2 rounded-full font-bold text-sm">
-                Unavailable
+                Indisponible
               </span>
             </div>
           )}
         </div>
 
         <div className="p-6">
-          <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-yellow-600 transition-colors line-clamp-2">
+          <h3 className="text-lg font-bold text-blue-950 mb-2 group-hover:text-yellow-600 transition-colors line-clamp-2">
             {product.name}
           </h3>
 
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs text-gray-500 mb-1">Starting from</p>
+              <p className="text-xs text-gray-500 mb-1">À partir de</p>
               {product.salePrice ? (
                 <div className="flex items-center gap-2">
                   <span className="text-2xl font-bold text-gray-900">

@@ -8,60 +8,62 @@ import {
   Phone,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "../ui/button";
 
-// Country code + number, no "+" or spaces
+// Indicatif pays + numéro, sans "+" ni espaces
 const WHATSAPP_NUMBER = "234XXXXXXXXXX";
 
 export default function AboutSection() {
   const features = [
     {
       icon: Award,
-      title: "Certified Electrician",
+      title: "Électricien certifié",
       description:
-        "Trained, tested and experienced in residential and commercial work",
+        "Formé, qualifié et expérimenté dans les travaux résidentiels et commerciaux",
     },
     {
       icon: Clock,
-      title: "Fast Response",
-      description: "Quick call-outs and jobs finished on schedule",
+      title: "Intervention rapide",
+      description: "Déplacements rapides et travaux terminés dans les délais",
     },
     {
       icon: ShieldCheck,
-      title: "Safety First",
-      description: "Every job follows strict safety and testing standards",
+      title: "La sécurité avant tout",
+      description:
+        "Chaque intervention respecte des normes strictes de sécurité et de contrôle",
     },
     {
       icon: Users,
-      title: "Licensed & Insured",
-      description: "Fully licensed team with complete insurance cover",
+      title: "Agréés et assurés",
+      description: "Équipe pleinement agréée avec une assurance complète",
     },
   ];
 
   const highlights = [
     {
-      title: "Quality Materials",
-      description: "Only trusted cables, breakers and fittings.",
+      title: "Matériaux de qualité",
+      description: "Uniquement des câbles, disjoncteurs et raccords fiables.",
     },
     {
-      title: "Transparent Pricing",
-      description: "Clear quotes upfront, with no hidden costs.",
+      title: "Tarifs transparents",
+      description: "Des devis clairs dès le départ, sans frais cachés.",
     },
     {
-      title: "Workmanship Warranty",
-      description: "Every installation is backed by our warranty.",
+      title: "Garantie sur les travaux",
+      description: "Chaque installation est couverte par notre garantie.",
     },
   ];
 
   const stats = [
-    { number: "10+", label: "Years in Business" },
-    { number: "500+", label: "Projects Completed" },
-    { number: "15", label: "Expert Electricians" },
-    { number: "4.9", label: "Average Rating" },
+    { number: "10+", label: "Années d’expérience" },
+    { number: "500+", label: "Projets réalisés" },
+    { number: "15", label: "Électriciens experts" },
+    { number: "4.9", label: "Note moyenne" },
   ];
 
   const handleContact = () => {
     const message =
-      "Hello, I'd like to talk to an electrician about a project.";
+      "Bonjour, j’aimerais parler à un électricien au sujet d’un projet.";
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -72,7 +74,7 @@ export default function AboutSection() {
 
       <div className="container px-6 max-w-7xl mx-auto w-full relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center mb-20">
-          {/* Left Content */}
+          {/* Contenu de gauche */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -80,28 +82,29 @@ export default function AboutSection() {
             viewport={{ once: true }}
           >
             <span className="inline-flex items-center gap-2 bg-yellow-300 text-neutral-900 text-sm font-bold px-4 py-1.5 rounded-full mb-6">
-              About Our Company
+              À propos de notre entreprise
             </span>
 
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-blue-950 leading-[1.1] mb-6">
-              Your Trusted{" "}
+              Votre partenaire{" "}
               <span className="bg-yellow-300 px-2 rounded-md inline-block">
-                Electrical
+                électrique
               </span>{" "}
-              Partner
+              de confiance
             </h2>
 
             <p className="text-slate-700 text-lg leading-relaxed mb-5">
-              For over a decade, we have powered homes, shops and offices with
-              safe, reliable electrical work. From wiring and installations to
-              solar setups and repairs, we are committed to quality workmanship
-              and honest service.
+              Depuis plus de dix ans, nous alimentons maisons, commerces et
+              bureaux grâce à des travaux électriques sûrs et fiables. Du
+              câblage aux installations, en passant par le solaire et les
+              réparations, nous nous engageons à fournir un travail de qualité
+              et un service honnête.
             </p>
 
             <p className="text-slate-700 text-lg leading-relaxed mb-8">
-              Our certified electricians combine proven techniques with modern
-              equipment to deliver installations that are safe, efficient and
-              built to last.
+              Nos électriciens certifiés associent des techniques éprouvées à
+              des équipements modernes pour réaliser des installations sûres,
+              efficaces et conçues pour durer.
             </p>
 
             <div className="space-y-4 mb-10">
@@ -116,16 +119,18 @@ export default function AboutSection() {
               ))}
             </div>
 
-            <button
-              onClick={handleContact}
+            <Button
+              asChild
               className="inline-flex items-center gap-2 bg-yellow-300 hover:bg-yellow-400 text-neutral-900 font-bold px-8 h-14 rounded-2xl shadow-lg transition-all"
             >
-              <Phone className="w-5 h-5" />
-              Talk to an Electrician
-            </button>
+              <a href="tel:+3247735046">
+                <Phone className="w-5 h-5" />
+                Parler à un électricien
+              </a>
+            </Button>
           </motion.div>
 
-          {/* Right Image */}
+          {/* Image de droite */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -137,14 +142,14 @@ export default function AboutSection() {
             <div className="relative">
               <img
                 src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=700&fit=crop"
-                alt="Electrician installing wiring"
+                alt="Électricien installant un câblage"
                 className="relative rounded-3xl shadow-2xl w-full object-cover"
               />
             </div>
           </motion.div>
         </div>
 
-        {/* Features Grid */}
+        {/* Grille des avantages */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

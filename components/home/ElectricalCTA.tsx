@@ -9,23 +9,23 @@ import {
   BadgeCheck,
 } from "lucide-react";
 
-// Country code + number, no "+" or spaces
+// Indicatif pays + numéro, sans "+" ni espaces
 const WHATSAPP_NUMBER = "234XXXXXXXXXX";
 const PHONE_NUMBER = "+234XXXXXXXXXX";
 
 const perks = [
-  { icon: Clock, text: "24/7 emergency service" },
-  { icon: ShieldCheck, text: "Licensed & insured" },
-  { icon: BadgeCheck, text: "Free, honest quotes" },
+  { icon: Clock, text: "Service d’urgence 24 h/24, 7 j/7" },
+  { icon: ShieldCheck, text: "Agréés et assurés" },
+  { icon: BadgeCheck, text: "Devis gratuits et honnêtes" },
 ];
 
 export default function ElectricalCTA({
-  eyebrow = "Need an electrician?",
-  title = "Let's power your next project, safely.",
-  body = "Tell us what you need and get a free quote fast. Certified electricians, clear pricing, and work that is built to last.",
-  ctaLabel = "Get a Free Quote",
-  callLabel = "Call Us Now",
-  marqueeText = "POWER YOUR PROJECT",
+  eyebrow = "Besoin d’un électricien ?",
+  title = "Donnons vie à votre prochain projet, en toute sécurité.",
+  body = "Dites-nous ce dont vous avez besoin et obtenez rapidement un devis gratuit. Électriciens certifiés, tarifs clairs et travail durable.",
+  ctaLabel = "Obtenir un devis gratuit",
+  callLabel = "Appelez-nous maintenant",
+  marqueeText = "ALIMENTEZ VOTRE PROJET",
   imageSrc = "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=900&h=1000&fit=crop",
 }: {
   eyebrow?: string;
@@ -40,7 +40,7 @@ export default function ElectricalCTA({
 
   const handleQuote = () => {
     const message =
-      "Hello, I'd like a free quote for an electrical job. Please get back to me.";
+      "Bonjour, je souhaiterais un devis gratuit pour des travaux électriques. Merci de me recontacter.";
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -62,7 +62,7 @@ export default function ElectricalCTA({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={imageSrc}
-              alt="Electrician at work"
+              alt="Électricien au travail"
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-yellow-300/20" />
@@ -72,12 +72,12 @@ export default function ElectricalCTA({
                 24/7
               </p>
               <p className="text-xs text-neutral-300 mt-1">
-                Emergency callouts
+                Interventions d’urgence
               </p>
             </div>
           </motion.div>
 
-          {/* Content */}
+          {/* Contenu */}
           <div className="p-7 sm:p-10 md:p-14 flex flex-col justify-center text-blue-950">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -129,9 +129,16 @@ export default function ElectricalCTA({
                 onClick={handleQuote}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-950 text-yellow-300 px-7 h-14 text-base font-bold shadow-lg hover:bg-neutral-800 transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-950 text-yellow-300 px-5 h-14 text-base font-medium shadow-lg hover:bg-blue-950 transition-colors"
               >
-                <MessageCircle className="h-5 w-5" />
+                <svg
+                  viewBox="0 0 32 32"
+                  className="relative h-5 w-5"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M16.003 3C8.83 3 3 8.83 3 16c0 2.29.6 4.52 1.74 6.49L3 29l6.7-1.72A12.94 12.94 0 0 0 16 29c7.17 0 13-5.83 13-13S23.17 3 16.003 3Zm0 23.7c-1.95 0-3.86-.52-5.53-1.5l-.4-.23-3.98 1.02 1.06-3.88-.26-.4A10.67 10.67 0 0 1 5.3 16c0-5.9 4.8-10.7 10.7-10.7S26.7 10.1 26.7 16 21.9 26.7 16.003 26.7Zm5.87-8c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.51-.16-.73.16-.21.32-.84 1.05-1.03 1.26-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.73-1.76-1-2.4-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68 0 1.58 1.15 3.1 1.31 3.32.16.21 2.26 3.45 5.48 4.84.77.33 1.37.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.21-.62-.37Z" />
+                </svg>
                 {ctaLabel}
               </motion.button>
 
@@ -139,7 +146,7 @@ export default function ElectricalCTA({
                 href={`tel:${PHONE_NUMBER}`}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-blue-950 text-blue-950 px-7 h-14 text-base font-bold hover:bg-blue-950 hover:text-yellow-300 transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-blue-950 text-blue-950 px-5 h-14 text-base font-medium hover:bg-blue-950 hover:text-yellow-300 transition-colors"
               >
                 <Phone className="h-5 w-5" />
                 {callLabel}

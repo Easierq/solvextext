@@ -8,7 +8,7 @@ export const FeaturedServices = () => {
   const products = [
     {
       id: 1,
-      name: "Full House Wiring",
+      name: "Câblage complet de la maison",
       price: 120,
       salePrice: 100,
       rating: "4.9",
@@ -25,7 +25,7 @@ export const FeaturedServices = () => {
     },
     {
       id: 2,
-      name: "Solar & Inverter Setup",
+      name: "Installation solaire et onduleur",
       price: 270,
       salePrice: 235,
       rating: "4.8",
@@ -42,7 +42,7 @@ export const FeaturedServices = () => {
     },
     {
       id: 3,
-      name: "Distribution Board Upgrade",
+      name: "Mise à niveau du tableau électrique",
       price: 55,
       rating: "4.9",
       reviews: 267,
@@ -57,7 +57,7 @@ export const FeaturedServices = () => {
     },
     {
       id: 4,
-      name: "Fault Finding & Repairs",
+      name: "Diagnostic de pannes et réparations",
       price: 15,
       salePrice: 10,
       rating: "4.7",
@@ -74,20 +74,20 @@ export const FeaturedServices = () => {
     },
   ];
   return (
-    <section className="py-16 relative">
+    <section className="py-12 relative">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000005_1px,transparent_1px),linear-gradient(to_bottom,#00000005_1px,transparent_1px)] bg-[size:56px_56px]" />
 
       <div className="container px-6 max-w-7xl mx-auto w-full">
         <div className="mb-12">
           <h2 className="text-4xl font-bold text-blue-950 mb-4">
-            Featured{" "}
+            Services{" "}
             <span className="bg-yellow-300 px-2 text-blue-950 rounded-md">
-              Services
+              à la une
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl">
-            Our most requested electrical services, done by certified
-            electricians
+            Nos services électriques les plus demandés, réalisés par des
+            électriciens certifiés
           </p>
         </div>
 
@@ -99,8 +99,8 @@ export const FeaturedServices = () => {
 
         <div className="text-center mt-12">
           <Link href="/services">
-            <button className="bg-yellow-300 hover:bg-yellow-400 text-neutral-900 px-8 py-4 rounded-lg text-lg font-bold transition-colors inline-flex items-center">
-              View All Services
+            <button className="bg-yellow-300 hover:bg-yellow-400 text-blue-950 px-8 py-4 rounded-lg text-lg font-bold transition-colors inline-flex items-center">
+              Voir tous les services
               <ChevronRight className="w-5 h-5 ml-2" />
             </button>
           </Link>
