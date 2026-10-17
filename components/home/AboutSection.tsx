@@ -167,7 +167,7 @@ export default function AboutSection() {
                 <div className="bg-yellow-300 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-md group-hover:rotate-6 transition-transform duration-300">
                   <Icon className="w-8 h-8 text-neutral-900" />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-blue-950 mb-2">
+                <h3 className="hidden sm:block text-base sm:text-lg font-bold text-blue-950 mb-2">
                   {feature.title}
                 </h3>
                 <p className="text-slate-600 text-sm">{feature.description}</p>

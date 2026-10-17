@@ -9,7 +9,7 @@ export default function Loader() {
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
-    const fadeTimer = setTimeout(() => setFade(true), 2500); // start fade
+    const fadeTimer = setTimeout(() => setFade(true), 2000); // start fade
     const hideTimer = setTimeout(() => {
       setVisible(false); // remove from DOM
       document.body.style.overflow = "";
@@ -30,11 +30,12 @@ export default function Loader() {
         fade ? "opacity-0" : "opacity-100"
       }`}
     >
-      <img
-        src="/lw.svg"
-        alt="logo"
-        className="h-auto w-[240px] md:w-[360px] lg:w-[500px]"
-      />
+      <div className="flex flex-col items-center gap-4">
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-blue-950/30 border-t-blue-950" />
+        <p className="text-sm tracking-widest font-bold text-blue-950">
+          Chargement...
+        </p>
+      </div>
     </div>
   );
 }

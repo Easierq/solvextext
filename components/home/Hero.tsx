@@ -154,7 +154,7 @@ export function Hero() {
                 <HeroImageSlide height={420} />
               </div>
               <div className="block lg:hidden w-full">
-                <HeroImageSlide height={360} />
+                <HeroImageSlide height={340} />
               </div>
             </div>
           </motion.div>
