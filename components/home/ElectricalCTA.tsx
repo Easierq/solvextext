@@ -10,8 +10,7 @@ import {
 } from "lucide-react";
 
 // Indicatif pays + numéro, sans "+" ni espaces
-const WHATSAPP_NUMBER = "234XXXXXXXXXX";
-const PHONE_NUMBER = "+234XXXXXXXXXX";
+const WHATSAPP_NUMBER = "32477350461";
 
 const perks = [
   { icon: Clock, text: "Service d’urgence 24 h/24, 7 j/7" },
@@ -143,7 +142,7 @@ export default function ElectricalCTA({
               </motion.button>
 
               <motion.a
-                href={`tel:${PHONE_NUMBER}`}
+                href="tel:+32477350461"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-blue-950 text-blue-950 px-5 h-14 text-base font-medium hover:bg-blue-950 hover:text-yellow-300 transition-colors"
