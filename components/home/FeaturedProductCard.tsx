@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { FurnitureProduct } from "@/types/product";
 
 // Indicatif pays + numéro, sans "+" ni espaces
-const WHATSAPP_NUMBER = "3247735046";
+const WHATSAPP_NUMBER = "32477350461";
 
 const badgeLabels: Record<NonNullable<FurnitureProduct["badge"]>, string> = {
   New: "Nouveau",

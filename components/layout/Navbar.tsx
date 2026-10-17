@@ -165,7 +165,7 @@ export function Navbar() {
                 </p>
               </div> */}
               <a
-                href="tel:+3247735046"
+                href="tel:+32477350461"
                 className="block text-right cursor-pointer group"
               >
                 <p className="text-blue-950 font-bold italic text-xl leading-none mb-1 group-hover:underline">

@@ -15,6 +15,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 import { cn } from "@/lib/utils";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import Loader from "@/components/layout/Loader";
 
 const SITE_CONFIG = {
   name: "Solvex",
@@ -68,7 +69,7 @@ export const metadata: Metadata = {
         url: `${SITE_CONFIG.url}/og.jpg`,
         width: 1200,
         height: 630,
-        alt: `${SITE_CONFIG.name} - Professional Electrical Services Dashboard`,
+        alt: `${SITE_CONFIG.name} - Professional Electrical Services Website`,
       },
     ],
   },
@@ -114,6 +115,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={cn(font.className, "")}>
         {/* <body> */}
+        <Loader />
         <Toaster />
         {children}
         <WhatsAppButton />

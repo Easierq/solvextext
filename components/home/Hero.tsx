@@ -72,7 +72,7 @@ export function Hero() {
               initial="initial"
               animate="animate"
               custom={1}
-              className="text-5xl md:text-6xl lg:text-7xl font-black md:font-black tracking-tight leading-[1.1] text-blue-950"
+              className="text-4xl md:text-6xl lg:text-7xl font-black md:font-black tracking-tight leading-[1.1] text-blue-950"
             >
               Alimentez chaque <br />
               <span className="bg-yellow-300 px-2 text-blue-950 inline-block rounded-md">
@@ -90,9 +90,9 @@ export function Hero() {
               className="text-lg md:text-xl text-slate-800 leading-relaxed max-w-lg"
             >
               Électriciens agréés pour le câblage, les installations, les
-              réparations et les systèmes solaires. Intervention rapide,
-              travail certifié et tarifs transparents — pour les maisons
-              comme pour les entreprises.
+              réparations et les systèmes solaires. Intervention rapide, travail
+              certifié et tarifs transparents — pour les maisons comme pour les
+              entreprises.
             </motion.p>
 
             {/* Appels à l’action */}
@@ -118,7 +118,7 @@ export function Hero() {
                 className="group w-full sm:w-auto h-14 px-8 rounded-2xl bg-yellow-300 hover:bg-yellow-400 text-blue-950 font-bold text-base shadow-lg transition-all"
               >
                 <a
-                  href="https://wa.me/3247735046?text=Bonjour,%20je%20souhaiterais%20obtenir%20un%20devis%20gratuit."
+                  href="https://wa.me/32477350461?text=Bonjour,%20je%20souhaiterais%20obtenir%20un%20devis%20gratuit."
                   target="_blank"
                   rel="noopener noreferrer"
                 >

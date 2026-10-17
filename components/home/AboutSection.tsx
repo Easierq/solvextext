@@ -123,7 +123,7 @@ export default function AboutSection() {
               asChild
               className="inline-flex items-center gap-2 bg-yellow-300 hover:bg-yellow-400 text-neutral-900 font-bold px-8 h-14 rounded-2xl shadow-lg transition-all"
             >
-              <a href="tel:+3247735046">
+              <a href="tel:+32477350461">
                 <Phone className="w-5 h-5" />
                 Parler à un électricien
               </a>

@@ -23,7 +23,6 @@ const DEFAULT_IMAGES: string[] = [
   "https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&q=80", // living room with woven pendant lights
   "https://images.unsplash.com/photo-1656402887556-e727ffe1f6d7?w=800&q=80", // kitchen with pendant lighting
   "https://images.unsplash.com/photo-1679485734032-1e2b82a6999c?w=800&q=80", // living and dining room, ceiling lights
-  "https://images.unsplash.com/photo-1627306411131-358d6d0fd2cb?w=800&q=80", // brass chandelier in a room
 ];
 
 export default function HeroImageSlide({
